@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
+import { GrClose } from "react-icons/gr";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 const variants = {
@@ -13,11 +14,12 @@ const Navbar = () => {
     <nav className="flex w-full h-[8vh] bg-white fixed z-50">
       <div className="flex justify-between items-center w-full h-full px-2 text-black relative">
         <span className="animate-bounce text-xl font-bold">Icon?</span>
-        <button
-          onClick={() => setIsOpen((isOpen) => !isOpen)}
-          className=""
-        >
-          <GiHamburgerMenu className="p-2 text-4xl" />
+        <button onClick={() => setIsOpen((isOpen) => !isOpen)} className="">
+          {isOpen ? (
+            <GrClose className="p-2 text-4xl" />
+          ) : (
+            <GiHamburgerMenu className="p-2 text-4xl" />
+          )}
         </button>
         <motion.ul
           animate={isOpen ? "open" : "closed"}
